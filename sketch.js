@@ -10,14 +10,13 @@ let anchoFeta = 10;
 function setup() {
   createCanvas(1280, 720);
   capture = createCapture(VIDEO);
-  capture.size(640, 480);
+  capture.size(1280, 720);
   capture.hide();
 }
 
 function draw() {
 
 
-  let miImagen;
   fotogramas.push(capture.get());
 
   //image(capture.get(320,0,10,480),100,100);
@@ -25,40 +24,47 @@ function draw() {
 
 
   for (let i = fotogramas.length - 1; i > 0; i--) {
-    feta = fotogramas[i].get(320, 0, 10, 480);
-    image(feta, 900 - 10 * i, 0, 100, 480);
-  }
-  fetaFinal = fotogramas[0].get(0, 0, 320, 480);
-  fetaPrincipio = fotogramas[fotogramas.length - 1].get(320, 0, 320, 480);
-
-
+    feta = fotogramas[i].get(640, 0, 9, 720);
     // flip over vertical axis
     push();
-    // new origin
-  translate(320, 0);
+    translate(968 - (8 * i), 0);
+    scale(-1, 1);
+    
+    image(feta,0 ,0, 9, 720);
+    pop();
+
+  }
+  fetaFinal = fotogramas[0].get(0, 0, 640, 720);
+  fetaPrincipio = fotogramas[fotogramas.length - 1].get(640, 0, 640, 720);
+
+
+  // flip over vertical axis
+  push();
+  // new origin
+  translate(327, 0);
   scale(-1, 1);
   //draws from upper right corner
-  image(fetaPrincipio, 0, 0, 320, 480);
-  
+  image(fetaPrincipio, 0, 0, 0, 720);
+
   pop();
 
-      // flip over vertical axis
-      push();
-      // new origin
-    translate(1200, 0);
-    scale(-1, 1);
-    //draws from upper right corner
-    image(fetaFinal, 0, 0, 320, 480);
-    
-    pop();
-  
+  // flip over vertical axis
+  push();
+  // new origin
+  translate(1280 + 320, 0);
+  scale(-1, 1);
+  //draws from upper right corner
+  image(fetaFinal, 0, 0, 0, 720);
 
-  
+  pop();
 
 
 
 
-  if (fotogramas.length >= 60) {
+
+
+
+  if (fotogramas.length >= 80) {
     fotogramas.splice(0, 1);
   }
 
@@ -68,7 +74,6 @@ function draw() {
 
   }
 }
-
 
 
 
