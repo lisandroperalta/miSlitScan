@@ -89,3 +89,9 @@ function windowResized() {
 
 
 
+function keyPressed() {
+  if (key == ' ') {
+    saveCanvas(pantallaTrasera, "screenshot" + frameCount, "png");
+
+  }
+}   
