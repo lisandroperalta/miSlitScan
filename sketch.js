@@ -20,6 +20,8 @@ function setup() {
   capture = createCapture(VIDEO);
   capture.size(1280, 720);
   capture.hide();
+  noCursor();
+
 }
 
 function draw() {
